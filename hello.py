@@ -1,5 +1,6 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request
+from werkzeug.utils import secure_filename
+from better_hack1 import classify
 
 
 app = Flask(__name__)
@@ -10,13 +11,23 @@ def home():
 
     return render_template("home.html")
 
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
 
-
-# http://127.0.0.1:5000/notme
-@app.route("/notme")
-def hello_not_you():
-    return "<p>please remove '/notme' from the url!</p>"
+@app.route('/post', methods=['POST'])
+def post():
+    print(request.files)
+    if 'the_image' not in request.files:
+        return 'oh no'
+    the_image = request.files['the_image']
+    the_image.save('./the_image.png')
+    return classify()
+    # return 'all done' # "recived: {}".format(request.form)
 
 
 if __name__ == "__main__":
     app.run(debug = True)
+    
+    
+    
