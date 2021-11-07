@@ -1,0 +1,41 @@
+h1 {
+    color: blue;
+}
+
+.header {
+    color: blue;
+}
+
+
+
+
+ body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+ }
+
+.square {
+      background-color: #FA8072;
+
+    }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+ .left-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 10px;
+ }
+
+  .right-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-contents: center;
+    padding: 10px;
+ }
